@@ -23,6 +23,12 @@ public class CsvReader {
         try {
             br = new BufferedReader(new FileReader(csvFilePath));
             int lineNumber = 0;
+
+            // added two new variable
+            int sum = 0;
+            int numberOfStudent = 0;
+            //***********
+
             while ((line = br.readLine()) != null) {
                 if(lineNumber == 0) {
                     lineNumber++;
@@ -32,7 +38,18 @@ public class CsvReader {
                 roster.add(new Trainee(name[5].replace("\"", ""), name[4].replace("\"",
                         ""), Integer.parseInt(name[10])));
 
+                //declaring a double variable and a function to add scores consecutively one after one
+                double score = Double.parseDouble(name[10]);
+                sum +=score;
+                numberOfStudent ++;
+               //********
             }
+
+            //print the sum, number of student and average score score of the student
+            System.out.println("****The Sum of Student's Score is ======>>>> : " +sum);
+            System.out.println("****The number of Student is ======>>>> : " +numberOfStudent);
+            System.out.println("********The Average Score of Student is ====>>>>:  "+(sum/numberOfStudent));
+            //***************
 
         } catch (IOException e) {
             e.printStackTrace();

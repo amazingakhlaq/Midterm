@@ -5,15 +5,21 @@ public class Fibonacci {
          /*
           Write 40 Fibonacci numbers with java.
          */
-        int n, a = 0, b = 0, c = 1;
-        System.out.print("40 Fibonacci numbers: ");
-        for(int i = 1; i <= 40; i++)
-        {
-            a = b;
-            b = c;
-            c = a + b;
-            System.out.print(a+" ");
+        System.out.println("The Fibonacci number is " + F(40));
+    }
+        public static int F(int n) {
+            if(n == 0) {
+                return 0;
+            }
+            if(n == 1) {
+                return 1;
+            }
+            else {
+                //Fibonacci Sequence Function
+                return F(n-1) + F(n-2);
+            }
+
         }
 
     }
-}
+
